@@ -46,8 +46,14 @@ app.use(function(req, res, next) {
 // consolidated endpoints for version one
 
 app.use('/v1', routes);
-app.get('/', (req, res) => {
-  // res.send('Hello world')
+
+//Handle production
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static(__dirname + '/public/'));
+  app.get(/.*/, (req, res)=>res.sendFile(__dirname + '/pub;ic/index.html'))
+}
+
+app.get('.*', (req, res) => {
   res.error(response(ENDPOINT_NOT_FOUND));
 });
 
