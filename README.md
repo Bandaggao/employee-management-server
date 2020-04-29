@@ -1,1 +1,1 @@
-# employee-management-server
+# employee-mangement-server
