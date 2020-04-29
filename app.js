@@ -45,7 +45,7 @@ app.use(function(req, res, next) {
 
 // consolidated endpoints for version one
 
-app.use('/v1', routes);
+app.use('/', routes);
 
 //Handle production
 if(process.env.NODE_ENV === 'production'){
