@@ -45,12 +45,12 @@ app.use(function(req, res, next) {
 
 // consolidated endpoints for version one
 
-app.use('/v1', routes);
+app.use('/v1/', routes);
 
 //Handle production
 if(process.env.NODE_ENV === 'production'){
   app.use(express.static(__dirname + '/public/'));
-  app.get(/.*/, (req, res)=>res.sendFile(__dirname + '/pub;ic/index.html'))
+  app.get('.*', (req, res)=>res.sendFile(__dirname + '/public/index.html'))
 }
 
 app.get('.*', (req, res) => {
